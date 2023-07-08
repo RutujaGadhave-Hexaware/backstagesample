@@ -2,6 +2,9 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: ${{ values.name | dump }}
+  annotations:
+    jenkins.io/job-full-name: ${{ values.githubCICD | dump }}
+    #github.com/project-slug: ${{ values.githubCICD | dump }}
 spec:
   type: service
   owner: user:guest

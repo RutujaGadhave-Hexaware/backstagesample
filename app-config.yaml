@@ -13,6 +13,11 @@ backend:
   #   keys:
   #     - secret: ${BACKEND_SECRET}
   baseUrl: http://localhost:7007
+  # reading:
+  #   allow:
+  #     - host: '*.github.com'
+  #     - host: github.com
+  #       paths: ['/api/']
   listen:
     port: 7007
     # Uncomment the following host directive to bind to specific interfaces
@@ -28,6 +33,8 @@ backend:
   # This is for local development only, it is not recommended to use this in production
   # The production database configuration is stored in app-config.production.yaml
   database:
+    #client: pg
+    #connection: postgres://SanjithS-Hexaware:XnebfIc1rG4j@ep-fancy-cherry-300145.us-east-2.aws.neon.tech?sslmode=require
     client: better-sqlite3
     connection: ':memory:'
   cache:
@@ -37,9 +44,8 @@ backend:
 integrations:
   github:
     - host: github.com
-      # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-      # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: ${GITHUB_TOKEN}
+      token:  ${GITHUB_TOKEN}
+      
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -65,7 +71,10 @@ techdocs:
 
 auth:
   # see https://backstage.io/docs/auth/ to learn about auth providers
+  environment: development
   providers: {}
+   
+
 
 scaffolder:
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
@@ -87,15 +96,33 @@ catalog:
       rules:
         - allow: [Template]
 
+    - type: file
+      target: ../../examples/template/sample.yaml
+      rules:
+        - allow: [Template]
+
+    - type: file
+      target: ../../examples/template/temp.yaml
+      rules:
+        - allow: [Template]
+
+    # - type: url
+    #   target: https://github.com/RutujaGadhave-Hexaware/NestGenerator/blob/main/generator-swdp-nestjs/generators/nest.yaml
+    #   rules:
+    #     - allow: [Template]
+
     # Local example organizational data
     - type: file
       target: ../../examples/org.yaml
       rules:
         - allow: [User, Group]
 
-    ## Uncomment these lines to add more example data
+    # Uncomment these lines to add more example data
     # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+    #   target: https://github.com/RutujaGadhave-Hexaware/BackstageDemoNew/blob/master/component1/catalog-info.yaml
+
+    # - type: url
+    #   target: https://github.com/RutujaGadhave-Hexaware/BackstageDemoNew/blob/master/component2/catalog-info.yaml
 
     ## Uncomment these lines to add an example org
     # - type: url

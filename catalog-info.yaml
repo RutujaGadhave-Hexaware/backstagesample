@@ -5,8 +5,11 @@ metadata:
   description: An example of a Backstage application.
   # Example for optional annotations
   # annotations:
-  #   github.com/project-slug: backstage/backstage
-  #   backstage.io/techdocs-ref: dir:.
+  #   github.com/project-slug: 'RutujaGadhave-Hexaware/RapidxRutuja3'
+    #github.com/project-slug: 'backstage/backstage'
+    # backstage.io/managed-by-location: url:http://github.com/backstage/backstage/blob/master/catalog-info.yaml
+    # backstage.io/orphan: 'true'
+    # backstage.io/techdocs-ref: dir:.
 spec:
   type: website
   owner: john@example.com
