@@ -5,7 +5,7 @@ metadata:
   description: An example of a Backstage application.
   # Example for optional annotations
   annotations:
-    jenkins.io/job-full-name : RutujaGadhave-Hexaware/backstagesample
+    jenkins.io/job-full-name: backstagesample
   #   github.com/project-slug: 'RutujaGadhave-Hexaware/RapidxRutuja3'
     #github.com/project-slug: 'backstage/backstage'
     # backstage.io/managed-by-location: url:http://github.com/backstage/backstage/blob/master/catalog-info.yaml
